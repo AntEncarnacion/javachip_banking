@@ -1,4 +1,4 @@
-package javachip.javachip_banking.customer;
+package com.javachip.api.rest.customer;
 
 public class CustomerNotFoundException extends RuntimeException {
     public CustomerNotFoundException(Integer id) {

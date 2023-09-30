@@ -1,4 +1,4 @@
-package javachip.javachip_banking.customer;
+package com.javachip.api.rest.customer;
 
 import org.springframework.data.repository.CrudRepository;
 

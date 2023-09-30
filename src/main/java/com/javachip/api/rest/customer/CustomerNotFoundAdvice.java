@@ -1,6 +1,5 @@
-package javachip.javachip_banking.customer;
+package com.javachip.api.rest.customer;
 
-import javachip.javachip_banking.user.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

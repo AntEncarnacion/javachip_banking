@@ -1,5 +1,6 @@
-package javachip.javachip_banking.customer;
+package com.javachip.api.rest.customer;
 
+import com.javachip.api.rest.account.Account;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -10,10 +11,21 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
-    private Integer accountId;
+
+    @OneToOne
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
+
+    @Column(name = "account_id")
     private String phoneNumber;
 
     public Customer() {
@@ -42,10 +54,6 @@ public class Customer {
         return this.dateOfBirth;
     }
 
-    public Integer getAccountId() {
-        return this.accountId;
-    }
-
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
@@ -54,23 +62,19 @@ public class Customer {
         this.id = newId;
     }
 
-     public void setFirstName(String newFirstName) {
-         this.firstName = newFirstName;
-     }
+    public void setFirstName(String newFirstName) {
+        this.firstName = newFirstName;
+    }
 
-     public void setLastName(String newLastName) {
-         this.lastName = newLastName;
-     }
+    public void setLastName(String newLastName) {
+        this.lastName = newLastName;
+    }
 
-     public void setDateOfBirth(LocalDate newDateOfBirth) {
-         this.dateOfBirth = newDateOfBirth;
-     }
+    public void setDateOfBirth(LocalDate newDateOfBirth) {
+        this.dateOfBirth = newDateOfBirth;
+    }
 
-     public void setPhoneNumber(String newPhoneNumber) {
-         this.phoneNumber = newPhoneNumber;
-     }
-
-    public void setAccountId(Integer accountId) {
-        this.accountId = accountId;
+    public void setPhoneNumber(String newPhoneNumber) {
+        this.phoneNumber = newPhoneNumber;
     }
 }
