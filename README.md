@@ -1,2 +1,4 @@
 # javachip_banking
-Educational repo. WORK IN PROGESS
+Educational REST API built with Spring Boot. 
+
+# WORK IN PROGESS
