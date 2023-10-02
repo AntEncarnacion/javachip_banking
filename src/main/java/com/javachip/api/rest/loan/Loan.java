@@ -12,24 +12,24 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private BigDecimal amount;
-    private BigDecimal remaningAmount;
+    private BigDecimal remainingAmount;
     private BigDecimal interestRate;
     @OneToOne
     private Branch branch;
     @ManyToOne
     private Account account;
-    private Integer loanTerm;
+    private Integer term;
 
     public Loan() {
     }
 
-    public Loan(BigDecimal newAmount, BigDecimal newRemaningAmount, BigDecimal newInterestRate, Branch newBranch, Account newAccount, Integer newLoanTerm) {
+    public Loan(BigDecimal newAmount, BigDecimal newRemainingAmount, BigDecimal newInterestRate, Branch newBranch, Account newAccount, Integer newTerm) {
         this.amount = newAmount;
-        this.remaningAmount = newRemaningAmount;
+        this.remainingAmount = newRemainingAmount;
         this.interestRate = newInterestRate;
         this.branch = newBranch;
         this.account = newAccount;
-        this.loanTerm = newLoanTerm;
+        this.term = newTerm;
     }
 
     public Integer getId() {
@@ -40,8 +40,8 @@ public class Loan {
         return this.amount;
     }
 
-    public BigDecimal getRemaningAmount() {
-        return this.remaningAmount;
+    public BigDecimal getRemainingAmount() {
+        return this.remainingAmount;
     }
 
     public BigDecimal getInterestRate() {
@@ -56,16 +56,16 @@ public class Loan {
         return this.account;
     }
 
-    public Integer getLoanTerm() {
-        return this.loanTerm;
+    public Integer getTerm() {
+        return this.term;
     }
 
     public void setAmount(BigDecimal newAmount) {
         this.amount = newAmount;
     }
 
-    public void setRemaningAmount(BigDecimal newRemaningAmount) {
-        this.remaningAmount = newRemaningAmount;
+    public void setRemainingAmount(BigDecimal newRemainingAmount) {
+        this.remainingAmount = newRemainingAmount;
     }
 
     public void setInterestRate(BigDecimal newInterestRate) {
@@ -80,8 +80,8 @@ public class Loan {
         this.account = newAccount;
     }
 
-    public void setLoanTerm(Integer newLoanTerm) {
-        this.loanTerm = newLoanTerm;
+    public void setTerm(Integer newTerm) {
+        this.term = newTerm;
     }
 
     public void setId(Integer newId) {
