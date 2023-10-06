@@ -8,10 +8,14 @@ import java.time.LocalDate;
 
 @Entity
 public class CreditCard {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column(unique = true)
+    private String cardNumber;
     @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
     private LocalDate expirationDate;
     @ManyToOne
@@ -20,7 +24,8 @@ public class CreditCard {
     public CreditCard() {
     }
 
-    public CreditCard(Customer newCustomer, LocalDate newExpirationDate, Account newAccount) {
+    public CreditCard(String cardNumber, Customer newCustomer, LocalDate newExpirationDate, Account newAccount) {
+        this.cardNumber = cardNumber;
         this.customer = newCustomer;
         this.expirationDate = newExpirationDate;
         this.account = newAccount;
@@ -28,6 +33,10 @@ public class CreditCard {
 
     public Integer getId() {
         return this.id;
+    }
+
+    public String getCardNumber() {
+        return this.cardNumber;
     }
 
     public Customer getCustomer() {
@@ -40,6 +49,10 @@ public class CreditCard {
 
     public Account getAccount() {
         return this.account;
+    }
+
+    public void setCardNumber(String newCardNumber) {
+        this.cardNumber = newCardNumber;
     }
 
     public void setCustomer(Customer newCustomer) {
