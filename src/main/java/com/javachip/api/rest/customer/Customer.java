@@ -22,16 +22,17 @@ public class Customer {
     private LocalDate dateOfBirth;
 
     @OneToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
     private Account account;
 
-    @Column(name = "account_id")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     public Customer() {
     }
 
-    public Customer(String newFirstName, String newLastName, LocalDate newDateOfBirth, String newPhoneNumber) {
+    public Customer(Account newAccount, String newFirstName, String newLastName, LocalDate newDateOfBirth, String newPhoneNumber) {
+        this.account = newAccount;
         this.firstName = newFirstName;
         this.lastName = newLastName;
         this.dateOfBirth = newDateOfBirth;
@@ -58,6 +59,10 @@ public class Customer {
         return this.phoneNumber;
     }
 
+    public Account getAccount() {
+        return this.account;
+    }
+
     public void setId(Integer newId) {
         this.id = newId;
     }
@@ -76,5 +81,9 @@ public class Customer {
 
     public void setPhoneNumber(String newPhoneNumber) {
         this.phoneNumber = newPhoneNumber;
+    }
+
+    public void setAccount(Account newAccount) {
+        this.account = newAccount;
     }
 }
