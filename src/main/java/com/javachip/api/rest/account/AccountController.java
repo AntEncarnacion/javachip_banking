@@ -31,7 +31,7 @@ public class AccountController {
         return this.accountRepository.findById(id)
                 .map(account -> {
                     account.setType(newAccount.getType());
-                    account.setBalance(newAccount.getBalance().doubleValue());
+                    account.setBalance(newAccount.getBalance());
                     return this.accountRepository.save(account);
                 })
                 .orElseGet(() -> {

@@ -25,9 +25,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(String newType, Double newBalance) {
+    public Account(String newType, BigDecimal newBalance) {
         this.type = newType;
-        this.balance = new BigDecimal(newBalance).setScale(2, RoundingMode.HALF_UP);
+        this.balance = newBalance;
         this.dateOpened = LocalDate.now();
     }
 
@@ -51,8 +51,8 @@ public class Account {
         this.type = newType;
     }
 
-    public void setBalance(Double newBalance) {
-        this.balance = new BigDecimal(newBalance).setScale(2, RoundingMode.HALF_UP);;
+    public void setBalance(BigDecimal newBalance) {
+        this.balance = newBalance;
     }
 
     public void setDateOpened(LocalDate newDateOpened) {
