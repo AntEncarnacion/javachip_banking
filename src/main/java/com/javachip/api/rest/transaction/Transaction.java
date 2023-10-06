@@ -2,16 +2,21 @@ package com.javachip.api.rest.transaction;
 
 import com.javachip.api.rest.account.Account;
 import com.javachip.api.rest.customer.Customer;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 import java.math.BigDecimal;
 
+@Entity
 public class Transaction {
     @Id
     @GeneratedValue
     private Integer id;
+    @ManyToOne
     private Account account;
+    @ManyToOne
     private Customer customer;
     private BigDecimal amount;
 

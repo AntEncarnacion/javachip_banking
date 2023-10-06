@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 public class TransactionController {
     private final TransactionRepository repository;
 
-    TransactionController(TransactionRepository repository) {
+    public TransactionController(TransactionRepository repository) {
         this.repository = repository;
     }
 
